@@ -34,4 +34,21 @@ app.get('/', function (req, res){
 //app.post('/todos', function (req, res){});
 
 //updates todo and redirects to index
+//to checks the todo complete
+//app.put('/todos/:name/complete', function (req, res){});
 
+//updates todo and redirects to index
+//to checks the todo uncomplete
+//app.put('todos/:name/uncomplete', function (req, res){});
+
+//destroy todo item redirects to index
+//linked to jade file that renders x button
+//app.delete('/user', function (req, res){});
+
+//local server stuff
+var server = app.listen(3000, function(){
+  var host = server.address().address;
+  var port = server.address().port;
+
+  console.log('Example app listening at http://%s:%s', host, port);
+});
