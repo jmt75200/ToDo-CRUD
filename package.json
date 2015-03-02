@@ -16,6 +16,7 @@
     "url": "https://github.com/jmt75200/ToDo-CRUD/issues"
   },
   "dependencies": {
+    "body-parser": "^1.12.0",
     "express": "^4.12.1",
     "jade": "^1.9.2",
     "mongoose": "^3.8.24"
