@@ -59,13 +59,16 @@ app.post('/todos', function (req, res){
 
 //update todos with edit
 //renders an edit todo form page
-//app.get("/todos/:id/edit", function(req, res){})
+// app.get("/todos/:id/edit", function(req, res){});
 
 //updates todo and redirects to index
 //to checks the todo complete
 app.put('/todos/:id/complete', function (req, res){
+  var id = req.params.id;
+  console.log('complete', id);
   var completed = req.body.is_done || "";
-  complete.update({ _id : id }, { $set: { completed : true }}, function (err){
+  
+  Todo.update({_id : id}, { is_done : true }, function (err){
       if (err) throw err;
       res.send('todo is complete');
   });
@@ -73,9 +76,12 @@ app.put('/todos/:id/complete', function (req, res){
 
 //updates todo and redirects to index
 //to checks the todo uncomplete
-app.put('todos/:id/uncomplete', function (req, res){
+app.put('/todos/:id/uncomplete', function (req, res){
+  var id = req.params.id;
+  console.log('uncomplete', id);
   var uncomplete = req.body.is_done || "";
-  complete.update({ _id : id }, { $set: {completed : false} }, function (err){
+  
+  Todo.update({_id : id}, { $set: { is_done : false } }, function (err){
     if (err) throw err;
     res.send('todo is uncomplete');
   });

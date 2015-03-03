@@ -1,5 +1,22 @@
 /* Styles for ToDo app */
 
+/* General */
+html{
+  background-color: white;
+}
+
 body{
+  max-width: 700px;
+  margin:auto;
   background-color: pink;
+  padding: 15px;
+}
+
+/*Layout*/
+.incomplete, .complete{
+  float: left;
+}
+
+.new_item{
+  float: right;
 }

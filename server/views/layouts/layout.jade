@@ -1,10 +1,16 @@
 doctype
 html
-  include ../partials/header.jade
+  include ../partials/head.jade
 
   body
-    h1 All the thangs I need toDo
-
+    header.clearfix
+      h1 Do all the thangs
+      .incomplete
+        p incomplete
+      .complete
+        p complete
+      button.new_item + New Item
+   
     block content
     
     script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js')

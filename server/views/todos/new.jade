@@ -2,14 +2,14 @@ extends ../layouts/layout.jade
 
 block content
   .container
-    h1 Make new todos
+    h1 New Item
 
     section.form_container
       form( action = "/todos", method = "post" )
         fieldset
           .title_container
-            input( type = "text", name = "title", placeholder = "Title")
+            input( type = "text", name = "title", placeholder = "Title") Title
           .desc_container
-            textarea(name = "description")
+            textarea(name = "description") Description
 
-        button Add New Task
+        button Save

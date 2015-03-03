@@ -9,18 +9,18 @@ $(function (){
       if( $(this).prop("checked") ){
         //checkbox is checked
         //issues a PUT request to complete todos route
-        $.ajax( '/todos' + doc_id + '/complete', {
+        $.ajax( '/todos/' +doc_id+ '/complete', {
           method : "PUT"
         });
 
-        alert('send PUT request to ' + '/todos/' + doc_id + 'complete');
+        alert('send PUT request to ' + '/todos/ ' + doc_id + ' complete');
       } else {
         //checkbox is unchecked
         //issue PUT request to uncomplete todos route
-        $.ajax('/todos' + doc_id + '/uncomplete', {
+        $.ajax('/todos/' +doc_id+ '/uncomplete', {
           method : "PUT"
         });
-        alert('send PUT request to ' + '/todos/' + doc_id + 'uncomplete');
+        alert('send PUT request to ' + '/todos/ ' + doc_id + ' uncomplete');
       }
 
   });

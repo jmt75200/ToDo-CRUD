@@ -2,13 +2,12 @@ extends ../layouts/layout.jade
 
 block content
   .container
-      ul
-        each todo in todos
-          li
-            form( action="" method="POST")
-              input(type ="checkbox")
-            span.title= todo.title
-            form( action="/todos/#{todo._id}?_method=DELETE", method="POST")
-              button x
+    ul
+      each todo in todos
+        li
+          input(type ="checkbox" data-todo-id="#{todo._id}")
+          h3.title= todo.title
+          form( action="/todos/#{todo._id}?_method=DELETE", method="POST")
+            button x
 
         
