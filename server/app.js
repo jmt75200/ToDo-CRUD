@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
+var methodOverride = require('method-override');
 
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/test');
@@ -8,42 +9,89 @@ var Schema = mongoose.Schema;
 
 var toDo = new Schema({
   title : String,
-  description : string,
-  is_done : Boolean,
-  created_at : Date
+  description : String,
+  is_done : {type: Boolean, default: false},
+  created_at : {type: Date, default: Date.now}
 });
 
+var Todo = mongoose.model('Todo', toDo);
+
+app.use(express.static(__dirname + '/../public'));
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(methodOverride('_method'));
 app.set('view engine', 'jade');
 
 //app.get with jade
 //shows end result renders all CRUD :: newly added todo list, checks is_done, updated todo, delete
 app.get('/', function (req, res){
-  // res.render('index', {
-  //   title : title,
-  //   description : description,
-  //   is_done : is_done,
-  //   created_at : Date
-  // });
+  // res.send('Hello Clarice');
+  Todo.find(function (err, todos){
+    if (err) throw err;
+    res.render('todos/list', {todos : todos});
+  });
+
 });
 
 //reders new_todo from form page
-//app.get('/new_todo', function (req, res){});
+app.get('/new', function (req, res){
+  res.render('todos/new');
+
+});
 
 //saves new todo and redirects to index
-//app.post('/todos', function (req, res){});
+app.post('/todos', function (req, res){
+  var title = req.body.title;
+  var description = req.body.description;
+
+  var todo = new Todo(
+    {
+      title : title,
+      description : description
+    }
+  );
+
+  todo.save(function (err){
+    if (err) throw err;
+    res.redirect("/");
+  });
+
+});
+
+//update todos with edit
+//renders an edit todo form page
+//app.get("/todos/:id/edit", function(req, res){})
 
 //updates todo and redirects to index
 //to checks the todo complete
-//app.put('/todos/:name/complete', function (req, res){});
+app.put('/todos/:id/complete', function (req, res){
+  var completed = req.body.is_done || "";
+  complete.update({ _id : id }, { $set: { completed : true }}, function (err){
+      if (err) throw err;
+      res.send('todo is complete');
+  });
+});
 
 //updates todo and redirects to index
 //to checks the todo uncomplete
-//app.put('todos/:name/uncomplete', function (req, res){});
+app.put('todos/:id/uncomplete', function (req, res){
+  var uncomplete = req.body.is_done || "";
+  complete.update({ _id : id }, { $set: {completed : false} }, function (err){
+    if (err) throw err;
+    res.send('todo is uncomplete');
+  });
+});
 
 //destroy todo item redirects to index
 //linked to jade file that renders x button
-//app.delete('/user', function (req, res){});
+app.delete('/todos/:id', function (req, res){
+  var id = req.params.id;
+  //find id then remove then redirect
+  Todo.find({_id : id}).remove().exec(function (err){
+    //redirect to index once item is removed
+    if (err) throw err;
+    res.redirect("/");
+  });
+});
 
 //local server stuff
 var server = app.listen(3000, function(){
