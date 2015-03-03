@@ -1,8 +1,14 @@
 extends ../layouts/layout.jade
 
 block content
-  each todo in todos
-    .container
-      h1!= todo.title
-      p!= todo.description    
-  
+  .container
+      ul
+        each todo in todos
+          li
+            form( action="" method="POST")
+              input(type ="checkbox")
+            span.title= todo.title
+            form( action="/todos/#{todo._id}?_method=DELETE", method="POST")
+              button x
+
+        
