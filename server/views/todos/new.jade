@@ -1,0 +1,15 @@
+extends ../layouts/layout.jade
+
+block content
+  .container
+    h1 Make new todos
+
+    section.form_container
+      form( action = "/todos", method = "post" )
+        fieldset
+          .title_container
+            input( type = "text", name = "title", placeholder = "Title")
+          .desc_container
+            textarea(name = "description")
+
+        button Add New Task
