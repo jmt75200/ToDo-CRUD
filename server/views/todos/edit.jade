@@ -9,9 +9,9 @@ block content
       form( action="/todos/#{todos._id}?_method=PUT", method="post" )
         fieldset
           label(for="title") Title
-          input( type="text", name="title", value=todos.title)
+          input( type="text", class="input_form", name="title", value=todos.title)
           label(for="description") Description
-          textarea(name="description")= todos.description 
+          textarea(name="description", class="input_form")= todos.description 
 
         button.save Save
       

@@ -13,14 +13,16 @@ $(function (){
           method : "PUT"
         });
 
-        alert('send PUT request to ' + '/todos/ ' + doc_id + ' complete');
+        $("h3").toggleClass("strike");
+
       } else {
         //checkbox is unchecked
         //issue PUT request to uncomplete todos route
         $.ajax('/todos/'+doc_id+'/uncomplete', {
           method : "PUT"
         });
-        alert('send PUT request to ' + '/todos/ ' + doc_id + ' uncomplete');
+        
+        $("h3").removeClass("strike");
       }
 
   });//end of update checkbox

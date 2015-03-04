@@ -5,11 +5,11 @@ block content
     ul
       each todo in todos
         li
-          .checked
-          input(type ="checkbox" data-todo-id="#{todo._id}")
+          input(type ="checkbox" data-todo-id="#{todo._id}" class="check")
           a(href="/todos/#{todo._id}/edit")
             h3= todo.title
           form( action="/todos/#{todo._id}?_method=DELETE", method="POST")
             button.delete x
+          p!= todo.description
 
         

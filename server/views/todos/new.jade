@@ -8,8 +8,8 @@ block content
       form( action = "/todos", method = "post" )
         fieldset
           label(for="title") Title
-          input( type = "text", name = "title", placeholder = "Title")
-          label(for="description") Description 
-          textarea(name = "description")
+          input( type = "text", class="input_form", name = "title", placeholder = "Title")
+          label(for="description") Description
+          textarea(name = "description", class="input_form", placeholder = "Description")
 
         button.save Save

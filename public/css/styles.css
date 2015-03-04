@@ -108,43 +108,43 @@ p {
   font-size: 1.2em;
   margin-right: 20px; }
 
-input {
+.save {
+  margin: 20px; }
+
+.input_form {
   display: block;
   margin: auto;
   width: 60%;
   padding-left: 10px;
   border: none;
-  background-color: transparent; }
+  background-color: transparent;
+  height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 3px; }
+  .input_form:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    border: 1px solid #ccc; }
 
-input:hover {
-  background-color: rgba(255, 255, 255, 0.25); }
-
-textarea {
-  display: block;
-  margin: auto;
-  width: 60%;
-  padding-left: 10px;
-  border: none;
-  background-color: transparent; }
-
-textarea:hover {
-  background-color: rgba(255, 255, 255, 0.25); }
-
-label {
+.form_container label {
   padding: 20px 0 5px;
   display: block;
   margin: auto;
   width: 60%; }
 
-input {
-  height: 40px; }
-
-textarea {
+textarea[name="description"] {
   height: 80px; }
 
 li {
-  padding: 30px 15px;
+  padding: 20px 15px;
   border-bottom: 1px solid #ccc; }
+  li input[type="checkbox"] {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    top: 15px;
+    left: 15px; }
+  li form {
+    display: inline-block; }
 
 .checked label {
   width: 20px;
@@ -152,17 +152,25 @@ li {
 
 h3 {
   display: inline-block;
+  position: relative;
   width: 80%;
   font-size: 1.2em;
-  margin-left: 30px; }
+  margin-left: 30px;
+  height: 40px; }
 
-form {
-  margin: 0; }
-  form.delete {
-    width: 50px;
-    font-size: 2em;
-    border: none;
-    color: #ccc;
-    background-color: transparent; }
-    form.delete:hover {
-      color: #D47735; }
+.strike:before {
+  content: " ";
+  position: absolute;
+  width: 100%;
+  border-bottom: 2px solid #D47735;
+  top: 10px;
+  transition-delay: width 4s; }
+
+.delete {
+  width: 50px;
+  font-size: 2em;
+  border: none;
+  color: #ccc;
+  background-color: transparent; }
+  .delete:hover {
+    color: #D47735; }
