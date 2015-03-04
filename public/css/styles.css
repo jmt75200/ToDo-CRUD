@@ -51,56 +51,118 @@ html {
 
 body {
   max-width: 800px;
-  background: #FFF4CE;
+  background: #F1EECE;
   margin: auto;
-  padding: 20px;
-  font-size: 16px; }
+  font-size: 16px;
+  font-family: 'Lato', sans-serif;
+  color: #907A70; }
 
 /* Layout */
 header {
-  display: inline; }
+  display: inline;
+  padding: 10px; }
+  header h1 {
+    font-size: 2em;
+    color: #D47735;
+    text-align: center;
+    padding-bottom: 20px; }
 
-.logo {
-  padding-bottom: 10px; }
-
-h1 {
+h2 {
   font-size: 2em;
-  max-width: 400px;
-  float: left; }
+  color: #fff;
+  background-color: #D47735;
+  padding: 25px; }
+
+#logo {
+  padding-bottom: 20px; }
+
+.main_container {
+  border-top: 1px solid #ccc; }
 
 .update {
   float: left;
-  width: 130px;
-  padding: 9px 10px; }
+  padding: 20px 20px 9px; }
+
+p {
+  padding: 10px 0 0 20px; }
 
 .new_item {
   float: right;
-  width: 100px; }
+  width: 160px;
+  padding: 10px 5px;
+  background-color: #D47735;
+  color: #fff;
+  border: none;
+  border-radius: 2px;
+  font-size: 1.2em;
+  margin-right: 20px; }
+
+.save {
+  float: right;
+  width: 160px;
+  padding: 10px 5px;
+  background-color: #D47735;
+  color: #fff;
+  border: none;
+  border-radius: 2px;
+  font-size: 1.2em;
+  margin-right: 20px; }
+
+input {
+  display: block;
+  margin: auto;
+  width: 60%;
+  padding-left: 10px;
+  border: none;
+  background-color: transparent; }
+
+input:hover {
+  background-color: rgba(255, 255, 255, 0.25); }
+
+textarea {
+  display: block;
+  margin: auto;
+  width: 60%;
+  padding-left: 10px;
+  border: none;
+  background-color: transparent; }
+
+textarea:hover {
+  background-color: rgba(255, 255, 255, 0.25); }
+
+label {
+  padding: 20px 0 5px;
+  display: block;
+  margin: auto;
+  width: 60%; }
+
+input {
+  height: 40px; }
+
+textarea {
+  height: 80px; }
 
 li {
-  background-color: pink;
-  padding: 30px 15px; }
-  li input {
-    display: none; }
+  padding: 30px 15px;
+  border-bottom: 1px solid #ccc; }
+
+.checked label {
+  width: 20px;
+  height: 20px; }
 
 h3 {
   display: inline-block;
   width: 80%;
   font-size: 1.2em;
   margin-left: 30px; }
-  h3:before {
-    content: " ";
-    border: 1px solid #ccc;
-    width: 20px;
-    height: 20px;
-    display: inline-block;
-    background-color: #fff;
-    margin-right: 5px;
-    vertical-align: middle; }
 
 form {
-  display: inline-block;
-  width: 75px;
   margin: 0; }
-  form button {
-    width: 50px; }
+  form.delete {
+    width: 50px;
+    font-size: 2em;
+    border: none;
+    color: #ccc;
+    background-color: transparent; }
+    form.delete:hover {
+      color: #D47735; }

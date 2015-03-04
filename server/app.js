@@ -38,6 +38,17 @@ app.get('/new', function (req, res){
 
 });
 
+//reders new_todo from form page
+app.get('/todos/:id/edit', function (req, res){
+  Todo.find({ _id : req.params.id }, function (err, todos){
+    if (err) throw err;
+    console.log(todos);
+    res.render('todos/edit', {todos : todos[0]});
+  });
+  
+
+});
+
 //saves new todo and redirects to index
 app.post('/todos', function (req, res){
   var title = req.body.title;
@@ -59,8 +70,8 @@ app.post('/todos', function (req, res){
 
 //update todos with edit
 //renders an edit todo form page
-app.put("/todos/:id/edit", function (req, res){
-  Todo.update({_id : id}, {
+app.put("/todos/:id", function (req, res){
+  Todo.update({_id : req.params.id}, {
     title : req.body.title,
     description : req.body.description
   }, function (err){

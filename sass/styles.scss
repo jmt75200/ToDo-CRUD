@@ -3,52 +3,108 @@
 
 /* General */
 html{
-  background-color: #fff;
+  background-color: $white;
 }
 
 body{
   max-width: 800px;
-  background: #FFF4CE;
+  background: #F1EECE;
   margin: auto;
-  padding: 20px;
-  font-size: 16px; 
+  font-size: 16px;
+  font-family: $font_lato; 
+  color: $grey;
 }
 
 /* Layout */
 header{
   display: inline;
+  padding: 10px;
+  h1{
+    font-size: 2em;
+    color: $orange;
+    text-align: center;
+    padding-bottom: 20px;
+  }
 }
 
-.logo{
-  padding-bottom: 10px;
-}
-
-h1{
+h2{
   font-size: 2em;
-  max-width: 400px;
-  float: left;
+  color: $white;
+  background-color: $orange;
+  padding: 25px;
 }
+
+#logo{
+  padding-bottom: 20px;
+}
+
+.main_container{
+  border-top: 1px solid #ccc;
+}
+
 .update {
   float: left;
-  width: 130px;
-  padding: 9px 10px;
+  padding: 20px 20px 9px;
 }
 
-.new_item{
-  float: right;
-  width: 100px;
+p{
+  padding: 10px 0 0 20px;
 }
 
-ul{
+@each $btn in new_item, save{ 
+  .#{$btn}{
+    float: right;
+    width: 160px;
+    padding: 10px 5px;
+    background-color: $orange;
+    color: $white; 
+    border: none;
+    border-radius: 2px;
+    font-size: 1.2em;
+    margin-right: 20px;
+  }
+}
+
+
+@each $form_item in input, textarea{
+  #{$form_item}{
+    display: block;
+    margin: auto;
+    width: 60%;
+    padding-left: 10px;
+    border: none;
+    background-color: rgba(0,0,0,0);
+  }
+
+  #{$form_item}:hover{
+    background-color: rgba(255, 255, 255,0.25)
+  }
+}
+
+label{
+  padding: 20px 0 5px;
+  display: block;
+  margin: auto;
+  width: 60%;
+}
+
+input{
+  height: 40px;
+}
+
+textarea{
+  height: 80px;
 }
 
 li{
-  background-color: pink;
+  // background-color: pink;
   padding: 30px 15px;
+  border-bottom: 1px solid #ccc;
+}
 
-  input{
-    display: none;
-  }
+.checked label{
+  width: 20px;
+  height: 20px;
 }
 
 h3 {
@@ -56,26 +112,22 @@ h3 {
     width: 80%;
     font-size: 1.2em;
     margin-left: 30px;
-
-    &:before{
-      content: " ";
-      border: 1px solid #ccc;
-      width: 20px;
-      height: 20px;
-      display: inline-block;
-      background-color: #fff;
-      margin-right: 5px;
-      vertical-align: middle;
-
-    }
   }
 
 form{
-  display: inline-block;
-  width: 75px;
+  // display: inline-block;
   margin: 0;
-  & button {
+  
+  &.delete {
     width: 50px;
+    font-size: 2em;
+    border: none;
+    color: #ccc;
+    background-color: rgba(0,0,0,0);
+
+    &:hover {
+      color: $orange;
+    }
   }
 }
 

@@ -2,14 +2,14 @@ extends ../layouts/layout.jade
 
 block content
   .container
-    h1 New Item
+    h2 New Item
 
-    section.form_container
+    section.form_container.clearfix
       form( action = "/todos", method = "post" )
         fieldset
-          .title_container
-            input( type = "text", name = "title", placeholder = "Title") Title
-          .desc_container
-            textarea(name = "description") Description
+          label(for="title") Title
+          input( type = "text", name = "title", placeholder = "Title")
+          label(for="description") Description 
+          textarea(name = "description")
 
-        button Save
+        button.save Save
