@@ -1,0 +1,81 @@
+@import "partials/reset";
+@import "partials/settings";
+
+/* General */
+html{
+  background-color: #fff;
+}
+
+body{
+  max-width: 800px;
+  background: #FFF4CE;
+  margin: auto;
+  padding: 20px;
+  font-size: 16px; 
+}
+
+/* Layout */
+header{
+  display: inline;
+}
+
+.logo{
+  padding-bottom: 10px;
+}
+
+h1{
+  font-size: 2em;
+  max-width: 400px;
+  float: left;
+}
+.update {
+  float: left;
+  width: 130px;
+  padding: 9px 10px;
+}
+
+.new_item{
+  float: right;
+  width: 100px;
+}
+
+ul{
+}
+
+li{
+  background-color: pink;
+  padding: 30px 15px;
+
+  input{
+    display: none;
+  }
+}
+
+h3 {
+    display: inline-block;
+    width: 80%;
+    font-size: 1.2em;
+    margin-left: 30px;
+
+    &:before{
+      content: " ";
+      border: 1px solid #ccc;
+      width: 20px;
+      height: 20px;
+      display: inline-block;
+      background-color: #fff;
+      margin-right: 5px;
+      vertical-align: middle;
+
+    }
+  }
+
+form{
+  display: inline-block;
+  width: 75px;
+  margin: 0;
+  & button {
+    width: 50px;
+  }
+}
+

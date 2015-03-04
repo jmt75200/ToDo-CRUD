@@ -1,12 +1,12 @@
 extends ../layouts/layout.jade
 
 block content
-  .container
+  .container.clearfix
     ul
       each todo in todos
         li
           input(type ="checkbox" data-todo-id="#{todo._id}")
-          h3.title= todo.title
+          h3= todo.title
           form( action="/todos/#{todo._id}?_method=DELETE", method="POST")
             button x
 

@@ -1,0 +1,15 @@
+extends ../layouts/layout.jade
+
+block content
+  .container
+    h1 New Item
+
+    section.form_container
+      form( action = "/todos/#{todo.id}?_method=PUT", method = "post" )
+        fieldset
+          .title_container
+            input( type = "text", name = "title", value= todo.title) Title
+          .desc_container
+            textarea(name = "description", value = todo.description) Description
+
+        button Save

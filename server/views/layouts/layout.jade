@@ -3,13 +3,14 @@ html
   include ../partials/head.jade
 
   body
-    header.clearfix
-      h1 Do all the thangs
-      .incomplete
-        p incomplete
-      .complete
-        p complete
-      button.new_item + New Item
+    header
+      #logo.clearfix
+        h1 Do all the thangs
+        .update
+          p incomplete
+        .update
+          p complete
+        button.new_item + New Item
    
     block content
     
