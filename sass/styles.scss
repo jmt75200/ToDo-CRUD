@@ -113,6 +113,7 @@ li{
       position: relative;
       top: 15px;
       left: 15px;
+      border: none transparent;
     }
   }
 
@@ -128,22 +129,30 @@ li{
 }
 
 h3 {
-    display: inline-block;
-    position: relative;
-    width: 80%;
-    font-size: 1.2em;
-    margin-left: 30px;
-    height: 40px;
-}
+  display: inline-block;
+  position: relative;
+  width: 80%;
+  font-size: 1.2em;
+  margin-left: 30px;
+  height: 40px;
 
-.strike{
   &:before{
     content: " ";
     position: absolute;
-    width: 100%;
+    width: 0%;
     border-bottom: 2px solid $orange;
     top: 10px;
-    transition-delay: width 4s;
+    transition: width 1s;
+  }
+}
+
+.strike{
+  h3{
+    color: $grey;
+
+    &:before{
+      width:100%
+    } 
   }
 }
 

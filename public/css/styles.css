@@ -142,7 +142,8 @@ li {
     height: 40px;
     position: relative;
     top: 15px;
-    left: 15px; }
+    left: 15px;
+    border: none transparent; }
   li form {
     display: inline-block; }
 
@@ -157,14 +158,18 @@ h3 {
   font-size: 1.2em;
   margin-left: 30px;
   height: 40px; }
+  h3:before {
+    content: " ";
+    position: absolute;
+    width: 0%;
+    border-bottom: 2px solid #D47735;
+    top: 10px;
+    transition: width 1s; }
 
-.strike:before {
-  content: " ";
-  position: absolute;
-  width: 100%;
-  border-bottom: 2px solid #D47735;
-  top: 10px;
-  transition-delay: width 4s; }
+.strike h3 {
+  color: #907A70; }
+  .strike h3:before {
+    width: 100%; }
 
 .delete {
   width: 50px;

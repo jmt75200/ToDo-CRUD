@@ -13,7 +13,7 @@ $(function (){
           method : "PUT"
         });
 
-        $("h3").toggleClass("strike");
+        $(this).parent().toggleClass("strike");
 
       } else {
         //checkbox is unchecked
@@ -22,7 +22,7 @@ $(function (){
           method : "PUT"
         });
         
-        $("h3").removeClass("strike");
+        $(this).parent().removeClass("strike");
       }
 
   });//end of update checkbox
