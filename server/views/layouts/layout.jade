@@ -7,14 +7,16 @@ html
       #logo.clearfix
         h1 Do all the thangs
         .update
-          p incomplete, complete
-        form( action="/new")
-          button.new_item + New Item
+          span.incompleted= todos.incomplete
+          span.completed= todos.complete
+        button.new_item + New Item
    
     block content
     
     script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js')
     script(src='/js/app.js')
+
+
 
     
   

@@ -1,15 +1,41 @@
 extends ../layouts/layout.jade
 
 block content
+  .container
+    h2 New Item
+
+    section.form_container.clearfix
+      form( action = "/todos", method = "post" )
+        fieldset
+          label(for="title") Title
+          input( type = "text", class="input_form", name = "title", placeholder = "Title")
+          label(for="description") Description
+          textarea(name = "description", class="input_form", placeholder = "Description")
+
+        button.save Save
+        button.cancel Cancel
+
   .main_container
     ul
       each todo in todos
-        li
-          input(type ="checkbox" data-todo-id="#{todo._id}" class="check")
-          a(href="/todos/#{todo._id}/edit")
+          li
+            input(type ="checkbox" data-todo-id="#{todo._id}" class="check" data-complete= "#{todo.is_done}")
             h3= todo.title
-          form( action="/todos/#{todo._id}?_method=DELETE", method="POST")
-            button.delete x
-          p!= todo.description
+            form( action="/todos/#{todo._id}?_method=DELETE", method="POST")
+              button.delete x
+            .desc
+              p!= todo.description
+              .editing
+                .edit_container
+                  h2 Edit Item
 
-        
+                  section.form_container.clearfix
+                    p= todo.created_at 
+                    form( action="/todos/#{todo._id}?_method=PUT", method="post" )
+                      fieldset
+                        label(for="title") Title
+                        input( type="text", class="input_form", name="title", value=todo.title)
+                        label(for="description") Description
+                        textarea(name="description", class="input_form")= todo.description 
+
+                      button.save Save

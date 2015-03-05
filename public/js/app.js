@@ -10,23 +10,41 @@ $(function (){
         //checkbox is checked
         //issues a PUT request to complete todos route
         $.ajax( '/todos/'+doc_id+'/complete', {
-          method : "PUT"
+          type : "PUT"
         });
-
         $(this).parent().toggleClass("strike");
 
       } else {
         //checkbox is unchecked
-        //issue PUT request to uncomplete todos route
-        $.ajax('/todos/'+doc_id+'/uncomplete', {
-          method : "PUT"
+        //issue PUT request to incomplete todos route
+        $.ajax('/todos/'+doc_id+'/incomplete', {
+          type : "PUT"
         });
         
         $(this).parent().removeClass("strike");
       }
 
-  });//end of update checkbox
+  }).each(function (i, obj){
+    //check each checkbox that is completed
+    if ($(obj).data("complete")){
+      $(obj).prop("checked", true);
+      $(this).parent().toggleClass("strike");
+    }
+  });//end of update checkbox  
 
-  
+  $(".new_item").click(function (){
+    $(".container").slideToggle("slow", function(){});
+  });
+
+  $(".cancel").click(function (){
+    $(".container").slideToggle("slow", function(){});
+  });
+
+  $("h3").click(function (){
+    $(this).parent().find(".editing").slideToggle("slow", function(){});
+  });
+
 
 });
+
+

@@ -11,7 +11,7 @@ body{
   background: #F1EECE;
   margin: auto;
   font-size: 16px;
-  font-family: $font_lato; 
+  font-family: $font_oswald; 
   color: $grey;
 }
 
@@ -34,6 +34,12 @@ h2{
   padding: 25px;
 }
 
+@each $item in container, editing{
+  .#{$item}{
+    display: none;
+  }
+}
+
 #logo{
   padding-bottom: 20px;
 }
@@ -42,16 +48,14 @@ h2{
   border-top: 1px solid #ccc;
 }
 
-.update {
-  float: left;
-  padding: 20px 20px 9px;
-}
-
 p{
   padding: 10px 0 0 20px;
+  margin: auto;
+  width: 80%;
+
 }
 
-@each $btn in new_item, save{ 
+@each $btn in new_item, save, cancel{ 
   .#{$btn}{
     float: right;
     width: 160px;
@@ -65,8 +69,18 @@ p{
   }
 }
 
-.save{
-  margin: 20px;
+button{
+  &.save{
+    margin: 20px;
+  }
+
+  &.cancel{
+    margin: 20px;
+  }
+}
+
+.editing{
+  padding-top: 20px;
 }
 
 .input_form {
@@ -92,6 +106,10 @@ p{
     display: block;
     margin: auto;
     width: 60%;
+  }
+
+  form{
+    width: 100%;
   }
 }
 
@@ -120,7 +138,6 @@ li{
   form{
     display: inline-block;
   }
-
 }
 
 .checked label{
@@ -131,10 +148,14 @@ li{
 h3 {
   display: inline-block;
   position: relative;
-  width: 80%;
+  width: 60%;
   font-size: 1.2em;
   margin-left: 30px;
   height: 40px;
+
+  @media #{$medium-up}{
+    width: 80%;
+  }
 
   &:before{
     content: " ";
@@ -148,11 +169,15 @@ h3 {
 
 .strike{
   h3{
-    color: $grey;
+    color: #ccc;
 
     &:before{
       width:100%
     } 
+  }
+
+  p {
+    color: #ccc;
   }
 }
 

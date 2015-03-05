@@ -54,7 +54,7 @@ body {
   background: #F1EECE;
   margin: auto;
   font-size: 16px;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Oswald', sans-serif;
   color: #907A70; }
 
 /* Layout */
@@ -73,18 +73,22 @@ h2 {
   background-color: #D47735;
   padding: 25px; }
 
+.container {
+  display: none; }
+
+.editing {
+  display: none; }
+
 #logo {
   padding-bottom: 20px; }
 
 .main_container {
   border-top: 1px solid #ccc; }
 
-.update {
-  float: left;
-  padding: 20px 20px 9px; }
-
 p {
-  padding: 10px 0 0 20px; }
+  padding: 10px 0 0 20px;
+  margin: auto;
+  width: 80%; }
 
 .new_item {
   float: right;
@@ -108,8 +112,24 @@ p {
   font-size: 1.2em;
   margin-right: 20px; }
 
-.save {
+.cancel {
+  float: right;
+  width: 160px;
+  padding: 10px 5px;
+  background-color: #D47735;
+  color: #fff;
+  border: none;
+  border-radius: 2px;
+  font-size: 1.2em;
+  margin-right: 20px; }
+
+button.save {
   margin: 20px; }
+button.cancel {
+  margin: 20px; }
+
+.editing {
+  padding-top: 20px; }
 
 .input_form {
   display: block;
@@ -130,6 +150,8 @@ p {
   display: block;
   margin: auto;
   width: 60%; }
+.form_container form {
+  width: 100%; }
 
 textarea[name="description"] {
   height: 80px; }
@@ -154,10 +176,13 @@ li {
 h3 {
   display: inline-block;
   position: relative;
-  width: 80%;
+  width: 60%;
   font-size: 1.2em;
   margin-left: 30px;
   height: 40px; }
+  @media only screen and (min-width:641px) {
+    h3 {
+      width: 80%; } }
   h3:before {
     content: " ";
     position: absolute;
@@ -167,9 +192,11 @@ h3 {
     transition: width 1s; }
 
 .strike h3 {
-  color: #907A70; }
+  color: #ccc; }
   .strike h3:before {
     width: 100%; }
+.strike p {
+  color: #ccc; }
 
 .delete {
   width: 50px;
