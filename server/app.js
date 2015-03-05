@@ -31,19 +31,6 @@ app.get('/', function (req, res){
   });
 });
 
-/*var complete_count = 0, incomplete_count = 0;
-
-  Todo.find({}).count({is_done: true}, function (err, complete_count){
-    Todo.count({is_done: false},function (err, incomplete_count){
-      if(err) throw err;
-      res.render('layouts/layout', {
-        todos : todos,
-        complete_count : is_complete,
-        incomplete_count : is_incomplete
-      });
-    });
-  });*/
-
 //reders new_todo from form page
 app.get('/new', function (req, res){
   res.render('todos/new');
@@ -82,15 +69,15 @@ app.post('/todos', function (req, res){
 
 //update todos with edit
 //renders an edit todo form page
-app.put("/todos/:id", function (req, res){
-  Todo.update({_id : req.params.id}, {
-    title : req.body.title,
-    description : req.body.description
-  }, function (err){
-    if (err) throw err;
-    res.redirect("/");
-  });
-});
+// app.put("/todos/:id", function (req, res){
+//   Todo.update({_id : req.params.id}, {
+//     title : req.body.title,
+//     description : req.body.description
+//   }, function (err){
+//     if (err) throw err;
+//     res.redirect("/");
+//   });
+// });
 
 //updates todo and redirects to index
 //to checks the todo complete
