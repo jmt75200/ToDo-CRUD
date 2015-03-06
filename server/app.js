@@ -44,8 +44,6 @@ app.get('/todos/:id/edit', function (req, res){
     console.log(todos);
     res.render('todos/edit', {todos : todos[0]});
   });
-  
-
 });
 
 //saves new todo and redirects to index
