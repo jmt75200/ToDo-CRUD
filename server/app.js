@@ -31,13 +31,13 @@ app.get('/', function (req, res){
   });
 });
 
-//reders new_todo from form page
+//renders new_todo from form page
 app.get('/new', function (req, res){
   res.render('todos/new');
 
 });
 
-//reders new_todo from form page
+//renders new_todo from form page
 app.get('/todos/:id/edit', function (req, res){
   Todo.find({ _id : req.params.id }, function (err, todos){
     if (err) throw err;
