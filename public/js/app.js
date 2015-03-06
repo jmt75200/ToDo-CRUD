@@ -1,6 +1,5 @@
 $(function (){
   // console.log('jquery is firing!');
-
   $("input[type='checkbox']").change(function (events){
       //make ajax work?!?!?!
       //get the id of the mongo doc
@@ -14,6 +13,8 @@ $(function (){
         });
         $(this).parent().toggleClass("strike");
 
+        update_todos();
+
       } else {
         //checkbox is unchecked
         //issue PUT request to incomplete todos route
@@ -22,6 +23,8 @@ $(function (){
         });
         
         $(this).parent().removeClass("strike");
+
+        update_todos();
       }
 
   }).each(function (i, obj){
@@ -45,6 +48,17 @@ $(function (){
   });
 
 
+  update_todos();
+
 });
 
 
+  function update_todos () {
+    //count how many are checked
+    var completed = $(":checked").length;
+    $(".completed").text( completed + " completed");
+    
+    //count how many are incomplete
+    var incomplete = $("li").length - completed;
+    $(".incompleted").text( incomplete + " incompleted");
+  }
