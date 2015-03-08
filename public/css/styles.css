@@ -82,6 +82,11 @@ h2 {
 #logo {
   padding-bottom: 20px; }
 
+.update {
+  padding: 0 20px; }
+  .update span {
+    margin-right: 10px; }
+
 .main_container {
   border-top: 1px solid #ccc; }
 
@@ -194,7 +199,7 @@ h3 {
 .strike h3 {
   color: #ccc; }
   .strike h3:before {
-    width: 100%; }
+    width: 80%; }
 .strike p {
   color: #ccc; }
 

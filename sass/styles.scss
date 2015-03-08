@@ -44,6 +44,14 @@ h2{
   padding-bottom: 20px;
 }
 
+.update{
+  padding: 0 20px;
+
+  span{
+    margin-right: 10px;
+  }
+}
+
 .main_container{
   border-top: 1px solid #ccc;
 }
@@ -172,7 +180,7 @@ h3 {
     color: #ccc;
 
     &:before{
-      width:100%
+      width: 80%
     } 
   }
 

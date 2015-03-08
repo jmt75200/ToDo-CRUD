@@ -67,15 +67,15 @@ app.post('/todos', function (req, res){
 
 //update todos with edit
 //renders an edit todo form page
-// app.put("/todos/:id", function (req, res){
-//   Todo.update({_id : req.params.id}, {
-//     title : req.body.title,
-//     description : req.body.description
-//   }, function (err){
-//     if (err) throw err;
-//     res.redirect("/");
-//   });
-// });
+app.put("/todos/:id", function (req, res){
+  Todo.update({_id : req.params.id}, {
+    title : req.body.title,
+    description : req.body.description
+  }, function (err){
+    if (err) throw err;
+    res.redirect("/");
+  });
+});
 
 //updates todo and redirects to index
 //to checks the todo complete
