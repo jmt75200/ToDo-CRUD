@@ -19,6 +19,8 @@ var Todo = mongoose.model('Todo', toDo);
 app.use(express.static(__dirname + '/../public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
+
+app.set('views',process.cwd() + '/server/views');
 app.set('view engine', 'jade');
 
 //app.get with jade
